@@ -86,7 +86,7 @@
   "action_sets": [
     {
       "name": "/actions/actions.json",
-      "usage": "single"
+      "usage": "leftright"
     },
     {
       "name": "/actions/platformer",
