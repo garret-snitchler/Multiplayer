@@ -1,44 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using System;
 
 
-public class MyXRInteractor : MonoBehaviour
+public class OffsetGrab : UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 {
-    public XRBaseInteractor interactor; // Reference to the XRInteractor
+    private Vector3 interactorPosition = Vector3.zero;
+    private Quaternion interactorRotation = Quaternion.identity;
 
-
-    private void OnEnable()
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        // Make sure we subscribe to the events when the interactor is enabled
-        if (interactor)
-        {
-            interactor.selectEntered.AddListener(OnSelectEnter);
-            interactor.selectExited.AddListener(OnSelectExit);
-        }
+        base.OnSelectEntered(args);
+        StoreInteractor(args.interactorObject);
+        MatchAttachmentPoints(args.interactorObject);
+
     }
 
-    private void OnDisable()
+    protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        // Unsubscribe from events when the interactor is disabled
-        if (interactor)
-        {
-            interactor.selectEntered.RemoveListener(OnSelectEnter);
-            interactor.selectExited.RemoveListener(OnSelectExit);
-        }
+        base.OnSelectExited(args);
+        ResetAttachmentPoints(args.interactorObject);
+        ClearInteractor(args.interactorObject);
     }
 
-    private void OnSelectEnter(SelectEnterEventArgs args)
+    private void StoreInteractor(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor interactor)
     {
-        //// Handle the select entered event
-        //Debug.Log("Object selected: " + args.interactableObject.gameObject.name);
+        interactorPosition = interactor.transform.localPosition;
+        interactorRotation = interactor.transform.localRotation;
     }
 
-    private void OnSelectExit(SelectExitEventArgs args)
+    private void MatchAttachmentPoints(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor interactor)
     {
-        //// Handle the select exited event
-        //Debug.Log("Object deselected: " + args.interactableObject.gameObject.name);
+        bool hasAttach = attachTransform != null;
+        interactor.transform.position = hasAttach ? attachTransform.position : transform.position;
+        interactor.transform.rotation = hasAttach ? attachTransform.rotation : transform.rotation;
+    }
+
+    private void ResetAttachmentPoints(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor interactor)
+    {
+       interactor.transform.localPosition = interactorPosition;
+        interactor.transform.localRotation = interactorRotation;
+    }
+
+    private void ClearInteractor(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor interactor)
+    {
+        interactorPosition = Vector3.zero;
+        interactorRotation = Quaternion.identity;
     }
 }
