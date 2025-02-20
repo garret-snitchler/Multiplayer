@@ -596,13 +596,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2679529736715292913, guid: fd16b6b33f1242242b5626a73bdef0bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.995
+      objectReference: {fileID: 0}
     - target: {fileID: 2722024331944988896, guid: fd16b6b33f1242242b5626a73bdef0bf,
         type: 3}
       propertyPath: m_Name
       value: JengaTower
       objectReference: {fileID: 0}
+    - target: {fileID: 4491450456552632131, guid: fd16b6b33f1242242b5626a73bdef0bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.491
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530685629609962854, guid: fd16b6b33f1242242b5626a73bdef0bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.747
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045238026265431462, guid: fd16b6b33f1242242b5626a73bdef0bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880264115110903116, guid: fd16b6b33f1242242b5626a73bdef0bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.499
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5384654537657736438, guid: fd16b6b33f1242242b5626a73bdef0bf, type: 3}
+    - {fileID: 6295569251659477619, guid: fd16b6b33f1242242b5626a73bdef0bf, type: 3}
+    - {fileID: 2109331671826640153, guid: fd16b6b33f1242242b5626a73bdef0bf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd16b6b33f1242242b5626a73bdef0bf, type: 3}
@@ -1669,6 +1697,26 @@ Transform:
   - {fileID: 5641622276335775652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &583300998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2699295885192630998, guid: 77ac6b10722bcca4a8baf70e44d89e78,
+    type: 3}
+  m_PrefabInstance: {fileID: 4607428429233221380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &583301004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583300998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f1b1686798fa44ba2339dc2f4a46ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControllerToSwitch: []
+  controller_switcher: {fileID: 0}
 --- !u!1 &620865076
 GameObject:
   m_ObjectHideFlags: 0
@@ -9597,7 +9645,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 8
       addedObject: {fileID: 839794436}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2699295885192630998, guid: 77ac6b10722bcca4a8baf70e44d89e78,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 583301004}
   m_SourcePrefab: {fileID: 100100000, guid: 77ac6b10722bcca4a8baf70e44d89e78, type: 3}
 --- !u!4 &4607428429233221381 stripped
 Transform:
@@ -10498,6 +10550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Offline Menu UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769490601588493923, guid: 95bd29654e15ad844be6210374a75967,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

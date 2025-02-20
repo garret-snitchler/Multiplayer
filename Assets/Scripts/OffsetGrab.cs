@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class OffsetGrab : UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 {
     private Vector3 interactorPosition = Vector3.zero;
+   // private Vector3 interactorPositionX = Vector3.up(0,0,-3);
     private Quaternion interactorRotation = Quaternion.identity;
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -33,13 +34,13 @@ public class OffsetGrab : UnityEngine.XR.Interaction.Toolkit.Interactables.XRGra
     private void MatchAttachmentPoints(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor interactor)
     {
         bool hasAttach = attachTransform != null;
-        interactor.transform.position = hasAttach ? attachTransform.position : transform.position;
-        interactor.transform.rotation = hasAttach ? attachTransform.rotation : transform.rotation;
+        interactor.transform.position = hasAttach ? attachTransform.position : interactor.transform.position;
+        interactor.transform.rotation = hasAttach ? attachTransform.rotation : interactor.transform.rotation;
     }
 
     private void ResetAttachmentPoints(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor interactor)
     {
-       interactor.transform.localPosition = interactorPosition;
+        interactor.transform.localPosition = interactorPosition;
         interactor.transform.localRotation = interactorRotation;
     }
 
